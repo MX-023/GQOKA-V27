@@ -1,0 +1,1 @@
+import Head from 'next/head';import Navbar from '@/components/Navbar';import ProfileCard from '@/components/ProfileCard';export default function Profile(){return(<><Head><title>Profil — GQOKA</title></Head><Navbar/><main className='container' style={{paddingTop:24}}><ProfileCard/></main></>);}

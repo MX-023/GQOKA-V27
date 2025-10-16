@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import './theme.css';
+*{box-sizing:border-box}html,body,#__next{height:100%}body{margin:0;background:var(--bg);color:var(--text);font-family:'Poppins',ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+a{color:inherit;text-decoration:none}.container{max-width:1200px;margin:0 auto;padding:16px}
+.btn{padding:12px 18px;border-radius:9999px;border:1px solid var(--text);background:transparent;color:var(--text);cursor:pointer;transition:transform .12s ease,background .2s ease,color .2s ease}
+.btn:hover{background:var(--text);color:#000}.btn.accent{border-color:var(--accent);color:var(--bg);background:var(--accent)}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:16px}.grid{display:grid;gap:16px}.grid-3{grid-template-columns:1fr}
+@media(min-width:768px){.grid-3{grid-template-columns:repeat(3,1fr)}}.nav{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;position:sticky;top:0;background:#0a0a0ace;backdrop-filter:blur(8px);z-index:10;border-bottom:1px solid var(--border)}
+.badge{display:inline-block;padding:4px 10px;border-radius:9999px;border:1px solid var(--accent);color:var(--accent);font-size:12px}
+.hero-title{font-size:clamp(32px,6vw,72px);letter-spacing:-.02em;margin:0}.hero-sub{color:var(--muted);margin:8px 0 16px}
+.toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center}.items{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}@media(min-width:768px){.items{grid-template-columns:repeat(4,1fr)}}
+.item-img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;border:1px solid var(--border)}.item-title{font-size:14px;margin-top:6px;color:#ddd}.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cookie-banner{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:var(--panel);border:1px solid var(--border);padding:12px 16px;border-radius:12px;display:flex;gap:12px;align-items:center;z-index:50;max-width:96vw}

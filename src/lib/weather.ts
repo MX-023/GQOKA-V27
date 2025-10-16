@@ -1,0 +1,1 @@
+export async function fetchWeather(city:string){const key=process.env.NEXT_PUBLIC_WEATHER_API_KEY; if(!key)return null; try{const res=await fetch(`https://api.weatherapi.com/v1/current.json?key=${key}&q=${encodeURIComponent(city)}&aqi=no`); if(!res.ok)return null; return await res.json()}catch{return null}}

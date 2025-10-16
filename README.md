@@ -1,0 +1,18 @@
+# GQOKA V27 — Modernized from V25 (Next.js + Supabase + Botpress)
+
+## Env
+```env
+NEXT_PUBLIC_SUPABASE_URL=YOUR_SUPABASE_URL
+NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
+NEXT_PUBLIC_BOTPRESS_URL=https://cdn.botpress.cloud/webchat/v3.3/inject.js
+NEXT_PUBLIC_BOTPRESS_CLIENT_ID=YOUR_BOTPRESS_CLIENT_ID
+NEXT_PUBLIC_WEATHER_API_KEY=8fb37d0d62dd406fb90185632251210
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+NEXT_PUBLIC_SUPABASE_BUCKET=wardrobe-images
+```
+
+## Run
+```bash
+npm install
+npm run dev
+```

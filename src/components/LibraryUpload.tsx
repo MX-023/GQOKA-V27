@@ -1,0 +1,1 @@
+'use client';export default function LibraryUpload({onFiles}:{onFiles:(files:FileList)=>void}){return(<label className='btn'><img src='/library-icon.svg' alt='library' width={18} height={18} style={{verticalAlign:'middle',marginRight:8}}/>Bibliothèque<input type='file' accept='image/*' multiple hidden onChange={(e)=>{if(e.target.files)onFiles(e.target.files);}}/></label>);}
