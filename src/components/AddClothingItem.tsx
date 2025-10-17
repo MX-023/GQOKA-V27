@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { supabase } from "../lib/supabase";
+import { supabase } from "../lib/supabaseClient";
 import { Camera, Image as Gallery } from "lucide-react";
 
 export default function AddClothingItem() {
@@ -12,39 +12,33 @@ export default function AddClothingItem() {
     setLoading(true);
     const { data, error } = await supabase.storage
       .from("wardrobe-images")
-      .upload(`items/${Date.now()}_${file.name}`, file);
-
-    if (error) alert("Erreur : " + error.message);
-    else alert("Image uploadée : " + data.path);
+      .upload(`wardrobe/${Date.now()}-${file.name}`, file);
 
     setLoading(false);
+
+    if (error) {
+      alert("Erreur lors du téléchargement : " + error.message);
+    } else {
+      console.log("Image uploadée :", data);
+      alert("Image ajoutée à votre garde-robe !");
+    }
   }
 
   return (
-    <div style={{ display: "flex", gap: 12 }}>
-      <label className="btn" htmlFor="camera">
-        <Camera size={20} /> Caméra
+    <div className="add-item">
+      <label htmlFor="file-upload" className="btn">
+        <Camera /> Ajouter un vêtement
       </label>
       <input
-        id="camera"
-        type="file"
-        accept="image/*"
-        capture="environment"
-        onChange={handleFileUpload}
-        style={{ display: "none" }}
-      />
-      <label className="btn" htmlFor="library">
-        <Gallery size={20} /> Bibliothèque
-      </label>
-      <input
-        id="library"
+        id="file-upload"
         type="file"
         accept="image/*"
         onChange={handleFileUpload}
         style={{ display: "none" }}
       />
-      {loading && <span>Chargement...</span>}
+      {loading && <p style={{ color: "#aaa" }}>Téléchargement en cours...</p>}
     </div>
   );
 }
+
 

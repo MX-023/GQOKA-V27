@@ -1,27 +1,24 @@
 import { useState } from "react";
 import { supabase } from "../lib/supabaseClient";
 
-export default function Signup() {
+export default function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSignup = async (e: React.FormEvent) => {
+  async function handleSignup(e: React.FormEvent) {
     e.preventDefault();
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-    });
+    const { error } = await supabase.auth.signUp({ email, password });
     if (error) alert("Erreur : " + error.message);
-    else alert("Inscription réussie ! Vérifie ton email.");
-  };
+    else alert("Compte créé avec succès !");
+  }
 
   return (
-    <div className="form-container">
-      <h2>Créer un compte</h2>
+    <main style={{ padding: 20 }}>
+      <h1>Inscription</h1>
       <form onSubmit={handleSignup}>
         <input
           type="email"
-          placeholder="Email"
+          placeholder="Votre email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -33,8 +30,9 @@ export default function Signup() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">S'inscrire</button>
+        <button type="submit">Créer un compte</button>
       </form>
-    </div>
+    </main>
   );
 }
+

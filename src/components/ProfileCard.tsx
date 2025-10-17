@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { supabase } from "../lib/supabase";
+import { supabase } from "../lib/supabaseClient";
 
 export default function ProfileCard() {
   const [email, setEmail] = useState<string | null>(null);
@@ -29,3 +29,4 @@ export default function ProfileCard() {
     </div>
   );
 }
+

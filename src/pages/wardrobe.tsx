@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { supabase } from "../lib/supabase";
+import { supabase } from "../lib/supabaseClient";
 import AddClothingItem from "../components/AddClothingItem";
 
 export default function WardrobePage() {
@@ -9,7 +9,8 @@ export default function WardrobePage() {
     (async () => {
       const { data, error } = await supabase
         .from("wardrobe_items")
-        .select("*");
+        .select("*")
+        .order("created_at", { ascending: false });
       if (!error && data) setItems(data);
     })();
   }, []);
@@ -18,15 +19,11 @@ export default function WardrobePage() {
     <div className="page">
       <h1>Ma garde-robe</h1>
       <AddClothingItem />
-      <div style={{ marginTop: 24 }}>
+      <div className="items">
         {items.map((item) => (
-          <div key={item.id} style={{ marginBottom: 12 }}>
-            <img
-              src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/wardrobe-images/${item.image_path}`}
-              alt={item.title}
-              width="120"
-            />
-            <div>{item.title}</div>
+          <div key={item.id} className="card">
+            <img src={item.image_url} alt={item.title || "Vêtement"} />
+            <p>{item.title}</p>
           </div>
         ))}
       </div>
